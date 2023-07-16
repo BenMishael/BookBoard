@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_schedule">
+
+    <fragment
+        android:id="@+id/nav_schedule"
+        android:name="com.example.bookboard.UI.Schedule.ScheduleFragment"
+        android:label="@string/menu_schedule"
+        tools:layout="@layout/fragment_month_view" />
+
+    <fragment
+        android:id="@+id/nav_reservations"
+        android:name="com.example.bookboard.UI.Reservations.ReservationsFragment"
+        android:label="@string/menu_reservations"
+        tools:layout="@layout/fragment_reservations" />
+
+    <fragment
+        android:id="@+id/nav_myaccount"
+        android:name="com.example.bookboard.UI.MyAccount.MyAccountFragment"
+        android:label="@string/menu_myaccount"
+        tools:layout="@layout/fragment_myaccount" />
+</navigation>
