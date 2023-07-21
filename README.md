@@ -1,6 +1,12 @@
+[Android.java]: https://img.shields.io/badge/Android%20Studio-3DDC84?style=for-the-badge&logo=AndroidStudio&logoColor=white
+[Android-url]: https://developer.android.com/studio/
+[Firebase]: https://img.shields.io/badge/Firebase-FF8A65?style=for-the-badge&logo=Firebase&logoColor=white
+[Firebase-url]: https://firebase.google.com/
+
 # BookBoard App
 
-[![Android Studio][Android.java]][Android-url] [![Firebase][Firebase]][Firebase-url]
+[![Android Studio][Android.java]][Android-url]
+[![Firebase][Firebase]][Firebase-url]
 
 ## About
 BookBoard is a mobile application designed to help users easily book study rooms in their educational institutions. The app provides a user-friendly interface to browse available rooms, make reservations, and manage their bookings efficiently. It aims to simplify the process of reserving study spaces, making it convenient for students and faculty.
