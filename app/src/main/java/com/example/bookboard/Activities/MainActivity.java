@@ -1,9 +1,8 @@
 package com.example.bookboard.Activities;
-import static android.content.ContentValues.TAG;
 
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.nfc.NdefMessage;
-import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -20,24 +19,26 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.bookboard.Interfaces.NFCListener;
-import com.example.bookboard.Model.Reservation;
+import com.example.bookboard.Interfaces.NfcListener;
 import com.example.bookboard.Model.UserDB;
 import com.example.bookboard.R;
+import com.example.bookboard.UI.Reservations.ReservationsFragment;
 import com.example.bookboard.Utilities.ImageLoader;
 import com.example.bookboard.Utilities.NfcUtils;
+import com.example.bookboard.Utilities.SignalGenerator;
 import com.example.bookboard.databinding.ActivityMainBinding;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements NFCListener {
+public class MainActivity extends AppCompatActivity implements NfcListener {
+    private static final String TAG = MainActivity.class.getSimpleName();
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityMainBinding binding;
     private NavigationView navigationView;
-    private NfcUtils nfcUtils;
     private NfcAdapter nfcAdapter;
+    private PendingIntent pendingIntent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,12 +50,8 @@ public class MainActivity extends AppCompatActivity implements NFCListener {
         final DrawerLayout drawer = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
-        // Initialize NFC Utils
-        nfcUtils = NfcUtils.getInstance(this);
-        nfcAdapter = nfcUtils.getNfcAdapter();
-
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_schedule, R.id.nav_reservations, R.id.nav_myaccount)
+                R.id.nav_rooms, R.id.nav_reservations, R.id.nav_myaccount)
                 .setOpenableLayout(drawer)
                 .build();
         final NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -63,22 +60,9 @@ public class MainActivity extends AppCompatActivity implements NFCListener {
 
         // Set Name for user
         updateUI(navigationView);
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (nfcAdapter != null) {
-            nfcUtils.enableForegroundDispatch(this, getIntent());
-        }
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (nfcAdapter != null) {
-            nfcUtils.disableForegroundDispatch(this);
-        }
+        // Initialize NFC adapter and enable foreground dispatch
+        initializeNfcAdapter();
     }
 
     private void updateUI(NavigationView navigationView) {
@@ -93,6 +77,59 @@ public class MainActivity extends AppCompatActivity implements NFCListener {
             ImageLoader.getInstance().loadProfileImage(photoUrl, photo);
         }
     }
+
+    private void initializeNfcAdapter() {
+        nfcAdapter = NfcAdapter.getDefaultAdapter(this);
+        if (nfcAdapter == null) {
+            // NFC is not supported on this device
+            return;
+        }
+        pendingIntent = PendingIntent.getActivity(this, 0,
+                new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), PendingIntent.FLAG_IMMUTABLE);
+    }
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // Enable foreground dispatch for NFC events
+        if (nfcAdapter != null) {
+            nfcAdapter.enableForegroundDispatch(this, pendingIntent, null, null);
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Disable foreground dispatch when the activity is paused
+        if (nfcAdapter != null) {
+            nfcAdapter.disableForegroundDispatch(this);
+        }
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        // Handle NFC tag data here
+        Log.d(TAG, "MainActivity-OnNewIntent: NFC event triggered");
+        SignalGenerator.getInstance().toast("MainActivity: NFC event triggered", Toast.LENGTH_SHORT);
+
+        // Get the NFC message as a String
+        NdefMessage ndefMessage = NfcUtils.getNdefMessageFromIntent(intent);
+        if (ndefMessage != null) {
+            Log.d(TAG, "MainActivity: Message not null");
+            String message = new String(ndefMessage.getRecords()[0].getPayload());
+            Log.d(TAG, "MainActivity: Message: " + message);
+
+            // Pass the NFC message as a String to the ReservationsFragment
+            ReservationsFragment reservationsFragment = (ReservationsFragment) getSupportFragmentManager().findFragmentById(R.id.nav_reservations);
+            if (reservationsFragment != null) {
+                reservationsFragment.onNfcDetected(ndefMessage, message);
+            }
+        }
+    }
+
+
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -110,37 +147,14 @@ public class MainActivity extends AppCompatActivity implements NFCListener {
     }
 
     private void setEmptyDataUserDB() {
-        UserDB.getInstance().setCurrentReservation(new Reservation());
         UserDB.getInstance().setAllReservations(new ArrayList<>());
     }
 
     @Override
-    public void onNFCIntent(Intent intent) {
-        if (NfcAdapter.ACTION_NDEF_DISCOVERED.equals(intent.getAction())) {
-            handleNfcIntent(intent);
-        }
-    }
-
-    private void handleNfcIntent(Intent intent) {
-        NfcUtils nfcUtils = NfcUtils.getInstance(this);
-        NdefMessage[] messages = nfcUtils.getNdefMessages(intent);
-        if (messages != null && messages.length > 0) {
-            NdefRecord record = messages[0].getRecords()[0];
-            String tagContent = nfcUtils.getTextFromNdefRecord(record);
-            validateNfcTag(tagContent);
-        }
-    }
-
-    private void validateNfcTag(String tagContent) {
-        if (isValidTag(tagContent)) {
-            Toast.makeText(this, "Valid NFC tag", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Invalid NFC tag", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private boolean isValidTag(String tagContent) {
-        String validTagContent = "ABC123";
-        return tagContent.equals(validTagContent);
+    public void onNfcDetected(NdefMessage ndefMessage, String message) {
+        // Handle NFC data received from NFCFragment here if needed
+        Log.d(TAG, "Received NFC Message in MainActivity: " + message);
+        SignalGenerator.getInstance().vibrate();
+        SignalGenerator.getInstance().toast("MainActivity: " + message, Toast.LENGTH_SHORT);
     }
 }

@@ -1,13 +1,13 @@
-package com.example.bookboard.UI.Schedule;
+package com.example.bookboard.UI.Rooms;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class ScheduleViewModel extends ViewModel {
+public class RoomsViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
-    public ScheduleViewModel() {
+    public RoomsViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("Schedule Fragment"); // Update the text to match the fragment's purpose
     }

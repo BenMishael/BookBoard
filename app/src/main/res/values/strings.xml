@@ -7,6 +7,8 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
     <string name="menu_schedule">Schedule Room</string>
+    <string name="rooms_message">Welcome to our workspace!\n Please peek a room from down below</string>
+    <string name="reservations_message">Please validate your reservation within 15 min!\n Otherwise it will be cancelled!</string>
     <string name="menu_reservations">My Reservations</string>
     <string name="menu_myaccount">My Account</string>\
     <string name="back"><![CDATA[<-]]></string>
@@ -36,4 +38,6 @@
     <string name="content_to1_mock">46th Ave</string>
     <string name="content_to2_mock">Woodside, NY 11101</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

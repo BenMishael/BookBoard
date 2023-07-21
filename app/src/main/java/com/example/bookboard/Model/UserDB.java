@@ -6,19 +6,16 @@ import java.util.ArrayList;
 
 public class UserDB {
     private ArrayList<Reservation> allReservations;
-    private Reservation currentReservation;
     private String name;
     private static UserDB userDB = null;
 
     // Constructors
     private UserDB() {
         allReservations = new ArrayList<>();
-        currentReservation = new Reservation();
     }
 
     private UserDB(FirebaseUser currentUser) {
         allReservations = new ArrayList<>();
-        currentReservation = new Reservation();
         this.name = currentUser.getDisplayName();
     }
 
@@ -36,11 +33,6 @@ public class UserDB {
     public ArrayList<Reservation> getAllReservations() {
         return allReservations;
     }
-
-    public Reservation getCurrentReservation() {
-        return currentReservation;
-    }
-
     public String getName() {
         return name;
     }
@@ -48,7 +40,6 @@ public class UserDB {
     // Set Functions
     public void setUser(UserDB user) {
         this.name = user.name;
-        this.currentReservation = user.currentReservation;
         this.allReservations = user.allReservations;
     }
     public void setAllReservations(ArrayList<Reservation> allReservations) {
@@ -57,9 +48,6 @@ public class UserDB {
 
     public void setName(String name) {
         this.name = name;
-    }
-    public void setCurrentReservation(Reservation currentReservation) {
-        this.currentReservation = currentReservation;
     }
 
     // Adding Functions
@@ -72,7 +60,4 @@ public class UserDB {
         allReservations.removeIf(r -> r.equals(reservation));
     }
 
-    public void removeCurrentReservation(Reservation reservation) {
-        currentReservation = null;
-    }
 }

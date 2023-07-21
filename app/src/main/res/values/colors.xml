@@ -20,6 +20,7 @@
     <color name="OrderActive">#4CAF50</color>
     <color name="OrderInactive">#F44336</color>
     <color name="offwhite">#e7eed0</color>
+    <color name="blueback">#CFDBED</color>
     <color name="empty">#515151</color>
     <color name="gray_500">#787878</color>
     <color name="green_200">#A5D6A7</color>

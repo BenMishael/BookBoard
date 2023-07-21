@@ -37,7 +37,7 @@ public class WeekViewFragment extends Fragment implements CalendarAdapter.OnItem
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_week_view, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_weekview, container, false);
         initWidgets(rootView);
         setWeekView();
         setOnClickListener();

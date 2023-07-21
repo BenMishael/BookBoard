@@ -1,43 +1,33 @@
 package com.example.bookboard.Model;
-import android.os.Parcel;
-import android.os.Parcelable;
 
-public class Room implements Parcelable {
+public class Room {
     private String title;
+    private String roomID;
     private int posterLottieID;
     private int maxPeople;
+    private String roomCalendarID;
     private String describe;
     private String available;
 
     public Room() {}
 
-    public Room(String title, int posterLottieID, int maxPeople, String describe, String available) {
+    public Room(String title, int posterLottieID, int maxPeople, String describe, String available, String roomID, String roomCalendarID) {
         this.title = title;
+        this.roomID = roomID;
         this.posterLottieID = posterLottieID;
         this.maxPeople = maxPeople;
+        this.roomCalendarID = roomCalendarID;
         this.describe = describe;
         this.available = available;
     }
 
-    protected Room(Parcel in) {
-        title = in.readString();
-        posterLottieID = in.readInt();
-        maxPeople = in.readInt();
-        describe = in.readString();
-        available = in.readString();
+    public String getRoomID() {
+        return roomID;
     }
 
-    public static final Creator<Room> CREATOR = new Creator<Room>() {
-        @Override
-        public Room createFromParcel(Parcel in) {
-            return new Room(in);
-        }
-
-        @Override
-        public Room[] newArray(int size) {
-            return new Room[size];
-        }
-    };
+    public void setRoomID(String roomID) {
+        this.roomID = roomID;
+    }
 
     public String getTitle() {
         return title;
@@ -63,6 +53,14 @@ public class Room implements Parcelable {
         this.maxPeople = maxPeople;
     }
 
+    public String getRoomCalendarID() {
+        return roomCalendarID;
+    }
+
+    public void setRoomCalendarID(String roomCalendarID) {
+        this.roomCalendarID = roomCalendarID;
+    }
+
     public String getDescribe() {
         return describe;
     }
@@ -83,24 +81,12 @@ public class Room implements Parcelable {
     public String toString() {
         return "Room{" +
                 "title='" + title + '\'' +
+                ", roomID='" + roomID + '\'' +
                 ", posterLottieID=" + posterLottieID +
                 ", maxPeople=" + maxPeople +
+                ", roomCalendarID='" + roomCalendarID + '\'' +
                 ", describe='" + describe + '\'' +
                 ", available='" + available + '\'' +
                 '}';
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(title);
-        dest.writeInt(posterLottieID);
-        dest.writeInt(maxPeople);
-        dest.writeString(describe);
-        dest.writeString(available);
     }
 }

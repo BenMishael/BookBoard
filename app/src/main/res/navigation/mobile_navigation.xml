@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_schedule">
+    app:startDestination="@+id/nav_rooms">
 
     <fragment
-        android:id="@+id/nav_schedule"
-        android:name="com.example.bookboard.UI.Schedule.ScheduleFragment"
+        android:id="@+id/nav_rooms"
+        android:name="com.example.bookboard.UI.Rooms.RoomsFragment"
         android:label="@string/menu_schedule"
-        tools:layout="@layout/fragment_month_view" />
+        tools:layout="@layout/fragment_rooms" />
 
     <fragment
         android:id="@+id/nav_reservations"
@@ -22,4 +22,26 @@
         android:name="com.example.bookboard.UI.MyAccount.MyAccountFragment"
         android:label="@string/menu_myaccount"
         tools:layout="@layout/fragment_myaccount" />
+
+    <fragment
+        android:id="@+id/nav_weekview"
+        android:name="com.example.bookboard.Fragments.WeekViewFragment"
+        tools:layout="@layout/fragment_weekview" />
+
+    <fragment
+        android:id="@+id/nav_monthview"
+        android:name="com.example.bookboard.Fragments.MonthViewFragment"
+        tools:layout="@layout/fragment_monthview" />
+
+    <fragment
+        android:id="@+id/nav_eventedit"
+        android:name="com.example.bookboard.Fragments.EventEditFragment"
+        tools:layout="@layout/fragment_eventedit" />
+
+    <fragment
+        android:id="@+id/nav_calendar"
+        android:name="com.example.bookboard.Fragments.CalendarFragment"
+        tools:layout="@layout/fragment_calendar" />
+
+
 </navigation>

@@ -35,7 +35,24 @@ public class LoadingActivity extends AppCompatActivity {
                 Log.d(TAG, "onAnimationEnd: "+R.raw.lottie_loadingcircle_end);
                 lottieAnimationLogo.setAnimation(R.raw.lottie_loadingcircle_end);
                 lottieAnimationLogo.playAnimation();
-                while(lottieAnimationLogo.isAnimating());
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) {
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) {
+            }
+        });
+
+        lottieAnimationLogo.addAnimatorListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animator) {
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 finish();
@@ -51,9 +68,10 @@ public class LoadingActivity extends AppCompatActivity {
         });
     }
 
+
     private void findViews() {
         lottieAnimationLogo = findViewById(R.id.animation_view_logo);
-        lottieAnimationView = findViewById(R.id.animation_view);
+        lottieAnimationView = findViewById(R.id.rooms_LTV_nfc);
     }
 
 }

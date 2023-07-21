@@ -33,7 +33,7 @@ public class MonthViewFragment extends Fragment implements CalendarAdapter.OnIte
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_month_view, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_monthview, container, false);
         initWidgets(rootView);
         CalendarUtils.selectedDate = LocalDate.now();
         setMonthView();

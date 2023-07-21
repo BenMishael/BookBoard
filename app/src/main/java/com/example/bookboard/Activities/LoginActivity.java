@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_login);
-        animationView = findViewById(R.id.animation_view);
+        animationView = findViewById(R.id.rooms_LTV_nfc);
         animationView.playAnimation();
     }
 

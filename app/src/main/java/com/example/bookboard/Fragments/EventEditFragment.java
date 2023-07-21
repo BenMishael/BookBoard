@@ -26,7 +26,7 @@ public class EventEditFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_event_edit, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_eventedit, container, false);
         initWidgets(rootView);
         time = LocalTime.now();
         eventDateTV.setText("Date: " + CalendarUtils.formattedDate(CalendarUtils.selectedDate));
