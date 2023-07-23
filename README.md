@@ -44,14 +44,15 @@ To run the BookBoard app on your local machine, follow these steps:
 For more detailed instructions, refer to the [Documentation](documentation.md) provided in the repository.
 
 ## Screenshots
-[<img src="https://i.ibb.co/M2cF1x6/Screenshot-2023-07-21-02-44-03-68-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
-[<img src="https://i.ibb.co/gPSb0R6/Screenshot-2023-07-21-02-44-13-49-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
-[<img src="https://i.ibb.co/ZVK3Z7P/Screenshot-2023-07-21-02-44-18-52-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
-[<img src="https://i.ibb.co/Rj1FpNm/Screenshot-2023-07-21-02-44-29-10-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
-[<img src="https://i.ibb.co/jw9NXcg/Screenshot-2023-07-21-02-44-37-58-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
-[<img src="https://i.ibb.co/7yxbXZ5/Screenshot-2023-07-21-02-44-42-00-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
-[<img src="https://i.ibb.co/YcWgbZC/Screenshot-2023-07-21-02-45-27-01-b783bf344239542886fee7b48fa4b892.jpg" width="250"/>](#)
-[<img src="https://i.ibb.co/zHB1QMT/Screenshot-2023-07-21-02-45-42-76-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
+[<img src="https://i.ibb.co/cx2sm2T/Screenshot-2023-07-23-16-18-26-09-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
+[<img src="https://i.ibb.co/d5YfCtH/Screenshot-2023-07-23-16-18-39-48-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
+[<img src="https://i.ibb.co/zRp7L5D/Screenshot-2023-07-23-16-18-51-45-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
+[<img src="https://i.ibb.co/MNvPKPT/Screenshot-2023-07-23-16-19-05-34-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
+[<img src="https://i.ibb.co/61xbcZj/Screenshot-2023-07-23-16-19-14-15-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
+[<img src="https://i.ibb.co/drHFmGv/Screenshot-2023-07-23-16-24-07-60-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
+[<img src="https://i.ibb.co/JRpGtLx/Screenshot-2023-07-23-16-24-16-31-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
+[<img src="https://i.ibb.co/YNQH8jd/Screenshot-2023-07-23-16-24-21-92-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
+[<img src="https://i.ibb.co/yygbPT0/Screenshot-2023-07-23-16-24-25-87-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
 
 ## Contributing
 We welcome contributions from everyone. If you would like to contribute to the BookBoard app, please follow the guidelines outlined in [CONTRIBUTING.md](CONTRIBUTING.md).
