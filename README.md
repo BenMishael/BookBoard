@@ -44,6 +44,7 @@ To run the BookBoard app on your local machine, follow these steps:
 For more detailed instructions, refer to the [Documentation](documentation.md) provided in the repository.
 
 ## Screenshots
+
 [<img src="https://i.ibb.co/cx2sm2T/Screenshot-2023-07-23-16-18-26-09-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
 [<img src="https://i.ibb.co/d5YfCtH/Screenshot-2023-07-23-16-18-39-48-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
 [<img src="https://i.ibb.co/zRp7L5D/Screenshot-2023-07-23-16-18-51-45-c912a81b5f8d5cd5b562863f5f9b7f20.jpg" width="250"/>](#)
