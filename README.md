@@ -1,4 +1,4 @@
-[<img src="https://i.ibb.co/3sfBfst/Book-Board.jpg"/>]
+<img src="https://i.ibb.co/3sfBfst/Book-Board.jpg" width="250" height="250"/>
 
 [Android.java]: https://img.shields.io/badge/Android%20Studio-3DDC84?style=for-the-badge&logo=AndroidStudio&logoColor=white
 [Android-url]: https://developer.android.com/studio/
