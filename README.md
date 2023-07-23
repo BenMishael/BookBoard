@@ -11,7 +11,7 @@
 [![Firebase][Firebase]][Firebase-url]
 
 ## About
-BookBoard is a mobile application designed to help users easily book study rooms in their educational institutions. The app provides a user-friendly interface to browse available rooms, make reservations, and manage their bookings efficiently. It aims to simplify the process of reserving study spaces, making it convenient for students and faculty.
+BookBoard is a mobile application designed to help users easily book study rooms in their educational institutions. The app provides a user-friendly interface to browse available rooms, make reservations, and manage their bookings efficiently. It integrates with Google Calendar API for seamless scheduling and NFC for easy room access.
 
 ## Built With
 - [Android Studio][Android-url] - The official IDE for Android development.
@@ -21,6 +21,8 @@ BookBoard is a mobile application designed to help users easily book study rooms
 - **Room Availability**: Browse and search available study rooms based on location, capacity, and amenities.
 - **Reservation Management**: Make reservations for specific time slots and manage existing bookings.
 - **Room Details**: View detailed information about each room, including capacity, equipment, and available resources.
+- **Google Calendar Integration**: Synchronize your room bookings with your personal Google Calendar.
+- **NFC Check-In**: Use your device to check-in to your booked room with a simple tap.
 - **Notifications**: Receive notifications and reminders for upcoming bookings.
 - **User Authentication**: Register an account and securely log in to access personalized features.
 - **Profile Management**: Update user information and view reservation history.
@@ -28,6 +30,8 @@ BookBoard is a mobile application designed to help users easily book study rooms
 ## Requirements
 To run the BookBoard app, you need:
 - Android device or emulator running Android 8 (Oreo) or higher.
+- NFC-enabled device for NFC check-in feature.
+- Google Account for Google Calendar integration.
 - Internet connectivity.
 
 ## Getting Started
