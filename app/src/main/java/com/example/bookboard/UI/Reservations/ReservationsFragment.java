@@ -21,8 +21,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.bookboard.Adapters.ReservationAdapter;
 import com.example.bookboard.Interfaces.NfcListener;
 import com.example.bookboard.Model.Reservation;
+import com.example.bookboard.Model.UserDB;
 import com.example.bookboard.UI.Rooms.RoomsViewModel;
-import com.example.bookboard.Utilities.DataManager;
 import com.example.bookboard.Utilities.SignalGenerator;
 import com.example.bookboard.databinding.FragmentReservationsBinding;
 
@@ -42,7 +42,7 @@ public class ReservationsFragment extends Fragment implements NfcListener {
         View rootView = binding.getRoot();
         reservationsRV = binding.reservationsLSTRes;
         reservationAdapter = new ReservationAdapter(getContext());
-        reservationAdapter.updateReservations(DataManager.getReservations());
+        reservationAdapter.updateReservations(UserDB.getInstance().getAllReservations());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(RecyclerView.VERTICAL);
         reservationsRV.setLayoutManager(linearLayoutManager);
@@ -59,9 +59,9 @@ public class ReservationsFragment extends Fragment implements NfcListener {
     }
 
     private void showNfcDialog() {
-        NFCFragment nfcFragment = NFCFragment.newInstance();
-        nfcFragment.setNfcListener(this); // Set the NfcListener to the NFCFragment
-        nfcFragment.show(getParentFragmentManager(), NFCFragment.TAG);
+        NfcFragment nfcFragment = NfcFragment.newInstance();
+        nfcFragment.setNfcListener(this); // Set the NfcListener to the NfcFragment
+        nfcFragment.show(getParentFragmentManager(), NfcFragment.TAG);
     }
 
     public void handleNfcIntent(Intent intent) {
@@ -75,7 +75,7 @@ public class ReservationsFragment extends Fragment implements NfcListener {
                 String message = new String(ndefMessage.getRecords()[0].getPayload());
                 Log.d(TAG, "NFC Tag Data: " + message);
 
-                // Pass the NFC data to the NFCFragment using the correct method from the interface
+                // Pass the NFC data to the NfcFragment using the correct method from the interface
                 onNfcDetected(ndefMessage, message);
             }
         }

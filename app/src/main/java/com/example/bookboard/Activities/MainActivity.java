@@ -88,7 +88,6 @@ public class MainActivity extends AppCompatActivity implements NfcListener {
                 new Intent(this, getClass()).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), PendingIntent.FLAG_IMMUTABLE);
     }
 
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -127,9 +126,10 @@ public class MainActivity extends AppCompatActivity implements NfcListener {
                 reservationsFragment.onNfcDetected(ndefMessage, message);
             }
         }
+
+        // Handle NFC disconnect and continue
+        handleNfcDisconnect(intent);
     }
-
-
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -156,5 +156,19 @@ public class MainActivity extends AppCompatActivity implements NfcListener {
         Log.d(TAG, "Received NFC Message in MainActivity: " + message);
         SignalGenerator.getInstance().vibrate();
         SignalGenerator.getInstance().toast("MainActivity: " + message, Toast.LENGTH_SHORT);
+    }
+
+    // Custom method to handle NFC disconnect
+    private void handleNfcDisconnect(Intent intent) {
+        // Check if the NFC tag is still present
+        if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
+            // NFC communication continued
+            Log.d(TAG, "NFC communication continued");
+            // Perform your actions, show messages, etc.
+        } else {
+            // Handle the NFC tag disconnection here
+            Log.d(TAG, "NFC tag disconnected");
+            // Perform your actions, show messages, etc.
+        }
     }
 }

@@ -23,7 +23,7 @@
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/rooms_LTV_nfc"
+            android:id="@+id/rooms_LTV_work"
             android:layout_width="wrap_content"
             android:layout_height="300dp"
             android:layout_gravity="center"

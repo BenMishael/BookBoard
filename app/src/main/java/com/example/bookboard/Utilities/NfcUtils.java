@@ -1,6 +1,4 @@
 package com.example.bookboard.Utilities;
-
-
 import android.content.Intent;
 import android.nfc.NdefMessage;
 import android.nfc.NfcAdapter;
@@ -16,3 +14,4 @@ public class NfcUtils {
         return ndefMessage;
     }
 }
+

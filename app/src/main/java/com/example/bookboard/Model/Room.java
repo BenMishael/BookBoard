@@ -5,18 +5,18 @@ public class Room {
     private String roomID;
     private int posterLottieID;
     private int maxPeople;
-    private String roomCalendarID;
+    private String calendarID;
     private String describe;
     private String available;
 
     public Room() {}
 
-    public Room(String title, int posterLottieID, int maxPeople, String describe, String available, String roomID, String roomCalendarID) {
+    public Room(String title, int posterLottieID, int maxPeople, String describe, String available, String roomID, String calendarID) {
         this.title = title;
         this.roomID = roomID;
         this.posterLottieID = posterLottieID;
         this.maxPeople = maxPeople;
-        this.roomCalendarID = roomCalendarID;
+        this.calendarID = calendarID;
         this.describe = describe;
         this.available = available;
     }
@@ -53,12 +53,12 @@ public class Room {
         this.maxPeople = maxPeople;
     }
 
-    public String getRoomCalendarID() {
-        return roomCalendarID;
+    public String getCalendarID() {
+        return calendarID;
     }
 
-    public void setRoomCalendarID(String roomCalendarID) {
-        this.roomCalendarID = roomCalendarID;
+    public void setCalendarID(String roomCalendarID) {
+        this.calendarID = roomCalendarID;
     }
 
     public String getDescribe() {
@@ -84,7 +84,7 @@ public class Room {
                 ", roomID='" + roomID + '\'' +
                 ", posterLottieID=" + posterLottieID +
                 ", maxPeople=" + maxPeople +
-                ", roomCalendarID='" + roomCalendarID + '\'' +
+                ", roomCalendarID='" + calendarID + '\'' +
                 ", describe='" + describe + '\'' +
                 ", available='" + available + '\'' +
                 '}';

@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,8 +29,6 @@ public class RoomsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        RoomsViewModel reservationViewModel =
-                new ViewModelProvider(this).get(RoomsViewModel.class);
         binding = FragmentRoomsBinding.inflate(inflater, container, false);
         View rootView = binding.getRoot();
         roomsRV = binding.roomsLSTAllrooms;
@@ -44,18 +41,20 @@ public class RoomsFragment extends Fragment {
         roomsAdapter.setRoomClickListener(new RoomAdapter.RoomClickListener() {
             @Override
             public void changeScreen(Room room) {
-                String roomID = room.getRoomID();
-                Bundle args = new Bundle();
-                args.putString(Constants.ARGS_CATEGORYID, roomID);
-                final NavController navController = Navigation.findNavController(getActivity(), R.id.nav_host_fragment_content_main);
-                navController.navigate(R.id.nav_calendar,args);
-
+                navigateToCalendarFragment(room);
             }
         });
 
         return rootView;
     }
 
+    private void navigateToCalendarFragment(Room room) {
+        String roomID = room.getRoomID();
+        Bundle args = new Bundle();
+        args.putString(Constants.ARGS_ROOMID, roomID);
+        final NavController navController = Navigation.findNavController(requireActivity(), R.id.nav_host_fragment_content_main);
+        navController.navigate(R.id.nav_calendar, args);
+    }
 
     @Override
     public void onDestroyView() {
@@ -63,4 +62,3 @@ public class RoomsFragment extends Fragment {
         binding = null;
     }
 }
-

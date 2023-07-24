@@ -71,7 +71,7 @@ public class LoadingActivity extends AppCompatActivity {
 
     private void findViews() {
         lottieAnimationLogo = findViewById(R.id.animation_view_logo);
-        lottieAnimationView = findViewById(R.id.rooms_LTV_nfc);
+        lottieAnimationView = findViewById(R.id.rooms_LTV_work);
     }
 
 }

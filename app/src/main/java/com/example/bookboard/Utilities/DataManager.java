@@ -22,6 +22,17 @@ public class DataManager {
         return rooms;
     }
 
+    public static Room getRoomById(String roomID) {
+        ArrayList<Room> rooms = getRooms();
+        for (Room room : rooms) {
+            if (room.getRoomID().equals(roomID)) {
+                return room;
+            }
+        }
+        return null; // If the room with the specified ID is not found, return null
+    }
+
+
     // Reservation(String reservationId, String roomName, String roomId, String date, String startTime, String endTime, boolean isValidated)
     public static ArrayList<Reservation> getReservations() {
         ArrayList<Reservation> reservations = new ArrayList<>();

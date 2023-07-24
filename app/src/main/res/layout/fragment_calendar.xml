@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.CalendarFragment">
+    tools:context=".UI.Rooms.CalendarFragment"
+    android:orientation="vertical"
+    android:padding="16dp">
 
-    <LinearLayout
+    <!-- TextView to display the selected date -->
+    <TextView
+        android:id="@+id/selectedDateTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_alignParentTop="true"
+        android:layout_gravity="center"
+        android:text="Select a Day:"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:visibility="visible" />
 
-        <!-- CalendarView -->
-        <CalendarView
-            android:id="@+id/calendarView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|top"
-            android:layout_margin="16dp" />
+    <!-- CalendarView to display the calendar -->
+    <CalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/selectedDateTextView"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:calendarTextColor="@color/black"
+        android:dateTextAppearance="@android:style/TextAppearance.Medium"
+        android:weekNumberColor="@color/black" />
 
-        <!-- Selected Date Text -->
-        <TextView
-            android:id="@+id/tvSelectedDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="8dp"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+    <!-- RecyclerView to display available time timeSlots -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/timeSlotsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@id/calendarView"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
+        tools:listitem="@layout/item_slot"
+        tools:visibility="visible" />
 
-        <!-- Available Slots RecyclerView -->
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerViewAvailableSlots"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp" />
+    <!-- Button to reserve the room -->
 
-        <!-- Schedule Room Button -->
-        <Button
-            android:id="@+id/btnScheduleRoom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="16dp"
-            android:text="Schedule Room" />
-
-    </LinearLayout>
-
-</ScrollView>
+</RelativeLayout>

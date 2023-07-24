@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.example.bookboard.Model.Reservation;
 import com.example.bookboard.Model.UserDB;
 import com.example.bookboard.R;
 import com.example.bookboard.Utilities.Constants;
@@ -23,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -38,7 +40,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
         setContentView(R.layout.activity_login);
-        animationView = findViewById(R.id.rooms_LTV_nfc);
+        animationView = findViewById(R.id.rooms_LTV_work);
         animationView.playAnimation();
     }
 
@@ -52,6 +54,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private void createNewUserDB() {
         UserDB.getInstance().setName(currentUser.getDisplayName());
+        ArrayList<Reservation> allReservations = new ArrayList<>();
+        UserDB.getInstance().setAllReservations(allReservations);
         reference.child(currentUser.getUid()).setValue(UserDB.getInstance());
     }
 

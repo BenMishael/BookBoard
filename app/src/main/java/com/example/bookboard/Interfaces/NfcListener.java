@@ -1,7 +1,7 @@
 package com.example.bookboard.Interfaces;
 
-import android.content.Intent;
+import android.nfc.NdefMessage;
 
-public interface NFCListener {
-    void onNFCIntent(Intent intent);
+public interface NfcListener {
+    void onNfcDetected(NdefMessage ndefMessage, String message);
 }
