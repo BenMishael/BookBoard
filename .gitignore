@@ -29,5 +29,8 @@ render.experimental.xml
 # Google Services (e.g. APIs or Firebase)
 google-services.json
 
+# Credentials
+/src/main/res/raw/credentials.json
+
 # Android Profiling
 *.hprof
