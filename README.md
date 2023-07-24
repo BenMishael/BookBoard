@@ -6,7 +6,7 @@
 [Firebase-url]: https://firebase.google.com/
 [Youtube]: https://img.shields.io/badge/Youtube-FC0303?style=for-the-badge&logo=Youtube&logoColor=white
 [Youtube-url]: https://youtu.be/X6BFDCESwos
-[Download]: https://img.shields.io/badge/Download_APK-brightgreen?style=flat_square&logo=android&logoColor=white
+[Download]: https://img.shields.io/badge/Download_APK-brightgreen?style=for-the-badge&logo=android&logoColor=white
 [Download-url]: https://youtu.be/X6BFDCESwos
 
 
